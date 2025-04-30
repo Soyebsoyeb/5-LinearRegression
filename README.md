@@ -33,3 +33,17 @@ The plot will show:
 - The OLS line pulled dramatically upward by outliers
 - The Ridge line maintaining a slope closer to the true relationship (slope=2)
 - Clear demonstration of Ridge's outlier resistance due to L2 penalty
+
+
+#  (2)  Ridge Regression 3D Visualization
+
+This script demonstrates ridge regression on perfectly correlated features using an interactive 3D plot with Plotly.
+
+## Key Features
+- Visualizes ridge regression with perfectly correlated features (X2 = 2*X1)
+- Shows data points and regression hyperplane in 3D space
+- Demonstrates how ridge regression handles multicollinearity
+- Interactive 3D plot with zoom, rotate, and pan capabilities
+
+(i)  Data Points: Red markers showing original (X1, X2, y) observations
+(ii) Regression Plane: Semi-transparent surface showing predicted values
