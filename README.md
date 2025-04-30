@@ -60,6 +60,25 @@ An optimized interactive 3D visualization demonstrating ridge regression with pe
 - 🔍 **Multicollinearity Demo**: Perfectly correlated features (X2 = 2*X1)
 - ⚡ **Efficient Rendering**: Uses Plotly's offline mode for quicker display
 
+
+# (3) OLS vs Ridge Regression Loss Surface Visualization
+
+Interactive 3D visualization comparing Ordinary Least Squares (OLS) and Ridge Regression loss surfaces with perfectly correlated features.
+
+## Key Features
+- 🏔️ **3D Loss Surfaces**: Visualize OLS and Ridge loss landscapes
+- 🔗 **Multicollinearity Demo**: Perfect correlation (x2 = 2*x1)
+- ⚖️ **Regularization Effect**: Compare λ=0 (OLS) vs λ=500 (Ridge)
+- 📊 **Interactive Plots**: Rotate, zoom, and explore the loss surfaces
+
+# Loss Calculation (Vectorized would be faster but clearer pedagogically)
+def calculate_loss(beta_1, beta_2, x1, x2, y, lambda_ridge=0):
+    loss = np.zeros(beta_1.shape)
+    for i in range(beta_1.shape[0]):
+        for j in range(beta_1.shape[1]):
+            y_pred = beta_1[i,j]*x1 + beta_2[i,j]*x2
+            loss[i,j] = np.sum((y-y_pred)**2) + lambda_ridge*(beta_1[i,j]**2 + beta_2[i,j]**2)
+    return loss
 # Optimized Ridge Regression Calculation
 beta_ridge = np.linalg.inv(X_with_intercept.T @ X_with_intercept + lambda_ridge*I) @ X_with_intercept.T @ y
 
@@ -67,4 +86,11 @@ beta_ridge = np.linalg.inv(X_with_intercept.T @ X_with_intercept + lambda_ridge*
 x1_range = np.linspace(0,5,10)  # Reduced grid resolution
 showscale=False  # Disabled color scale for faster rendering
 aspectmode='manual'  # Fixed aspect ratio improves performance
+
+## 📖 Overview
+This project visualizes the loss landscapes of Ordinary Least Squares (OLS) and Ridge Regression when features are perfectly correlated. It demonstrates:
+- How multicollinearity affects OLS regression
+- Ridge regression's solution to this problem via L2 regularization
+- The bias-variance tradeoff in action
+
 
