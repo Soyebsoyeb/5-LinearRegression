@@ -35,7 +35,7 @@ The plot will show:
 - Clear demonstration of Ridge's outlier resistance due to L2 penalty
 
 
-#  (2)  Ridge Regression 3D Visualization
+#  (2) (i) Ridge Regression 3D Visualization
 
 This script demonstrates ridge regression on perfectly correlated features using an interactive 3D plot with Plotly.
 
@@ -45,5 +45,26 @@ This script demonstrates ridge regression on perfectly correlated features using
 - Demonstrates how ridge regression handles multicollinearity
 - Interactive 3D plot with zoom, rotate, and pan capabilities
 
-(i)  Data Points: Red markers showing original (X1, X2, y) observations
-(ii) Regression Plane: Semi-transparent surface showing predicted values
+(a)  Data Points: Red markers showing original (X1, X2, y) observations
+(b) Regression Plane: Semi-transparent surface showing predicted values
+
+
+
+# (ii) Ridge Regression 3D Hyperplane Visualization
+
+An optimized interactive 3D visualization demonstrating ridge regression with perfectly correlated features.
+
+## Key Features
+- 🚀 **Performance Optimized**: Reduced mesh resolution and rendering settings for faster display
+- 📊 **Interactive 3D Plot**: Rotate, zoom, and explore the regression hyperplane
+- 🔍 **Multicollinearity Demo**: Perfectly correlated features (X2 = 2*X1)
+- ⚡ **Efficient Rendering**: Uses Plotly's offline mode for quicker display
+
+# Optimized Ridge Regression Calculation
+beta_ridge = np.linalg.inv(X_with_intercept.T @ X_with_intercept + lambda_ridge*I) @ X_with_intercept.T @ y
+
+# Performance Optimizations:
+x1_range = np.linspace(0,5,10)  # Reduced grid resolution
+showscale=False  # Disabled color scale for faster rendering
+aspectmode='manual'  # Fixed aspect ratio improves performance
+
